@@ -10,9 +10,24 @@ import '../styles/index.css'
 
 // components
 import Home from './components/Home';
+import SecondsCounter from './components/SecondsCounter';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
+let counter = 0;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+const intervalo = setInterval (() => {
+  counter++ 
+  root.render(
+    <React.StrictMode>  
+       <SecondsCounter seconds={counter}/>
+    </React.StrictMode>,
+  )
+
+},1000);
+
+
+
+root.render(
+  <React.StrictMode>  
+    <SecondsCounter seconds={counter}/>
   </React.StrictMode>,
 )
